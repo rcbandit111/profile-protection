@@ -7,5 +7,5 @@ public interface KeysService {
 
     String encryptValueRequest(EncryptValueRequest encryptValueRequest);
 
-    void decryptValueRequest(DecryptValueRequest decryptValueRequest);
+    String decryptValueRequest(DecryptValueRequest decryptValueRequest);
 }

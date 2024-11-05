@@ -1,35 +1,40 @@
 package com.profile.protection.admin.service;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
-@Getter
-@Setter
 @Configuration
 @ConfigurationProperties(prefix = "profile-protection")
-public class DataProtectionConfig {
+@Data
+public class ProfileProtectionProperties {
 
     private List<DataClass> dataClasses;
 
-    @Getter
-    @Setter
+    @Data
     public static class DataClass {
+
         private String name;
         private String activeVersionName;
         private List<Version> versions;
 
-        @Getter
-        @Setter
+        @Data
         public static class Version {
+
             private String versionName;
             private String algorithmName;
             private String encryptAlgorithmName;
             private String encryptKeyName;
             private int encryptKeyVersion;
+        }
+
+        public Version getActualVersion() {
+            return this.versions.stream()
+                    .filter(version -> version.getVersionName().equals(this.activeVersionName))
+                    .findFirst()
+                    .orElseThrow(() -> new RuntimeException("No active version found"));
         }
     }
 }
