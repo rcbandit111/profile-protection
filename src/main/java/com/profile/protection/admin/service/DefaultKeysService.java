@@ -1,10 +1,5 @@
 package com.profile.protection.admin.service;
 
-import com.profile.protection.admin.resource.DecryptValueRequest;
-import com.profile.protection.admin.resource.EncryptValueRequest;
-import org.springframework.stereotype.Service;
-
-@Service
 public class DefaultKeysService implements KeysService {
 
     private final ProfileProtectionProperties.DataClass             dataClass;
@@ -20,17 +15,12 @@ public class DefaultKeysService implements KeysService {
     }
 
     @Override
-    public String encryptValueRequest(EncryptValueRequest encryptValueRequest) {
-        // todo
-        // write your code here using your properties
-
+    public String encrypt(String plaintext) {
         return "";
     }
 
     @Override
-    public String decryptValueRequest(DecryptValueRequest decryptValueRequest) {
-        // todo
-        // write your code here using your properties
+    public String decrypt(String ciphertext) {
         return "";
     }
 }

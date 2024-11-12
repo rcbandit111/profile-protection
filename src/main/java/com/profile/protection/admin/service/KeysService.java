@@ -5,7 +5,6 @@ import com.profile.protection.admin.resource.EncryptValueRequest;
 
 public interface KeysService {
 
-    String encryptValueRequest(EncryptValueRequest encryptValueRequest);
-
-    String decryptValueRequest(DecryptValueRequest decryptValueRequest);
+    String encrypt(String plaintext);
+    String decrypt(String ciphertext);
 }
